@@ -66,6 +66,7 @@ static void showfile(const int nth, const char *fpath, const char *name, int pri
 			}
 	}
 #else
+	u_rwx = strdup ("-");
 	fch = isdir? 'd': '-';
 #endif
 	if (printfmt == FMT_RAW) {
