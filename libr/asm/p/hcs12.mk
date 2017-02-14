@@ -1,0 +1,11 @@
+OBJ_HCS12=asm_hcs12.o
+
+STATIC_OBJ+=${OBJ_HCS12}
+TARGET_HCS12=asm_hcs12.${EXT_SO}
+
+ifeq ($(WITHPIC),1)
+ALL_TARGETS+=${TARGET_HCS12}
+
+${TARGET_HCS12}: ${OBJ_HCS12}
+	${CC} ${call libname,asm_hcs12} ${CFLAGS} $(LDFLAGS) -o ${TARGET_HCS12} ${OBJ_HCS12}
+endif
